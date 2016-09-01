@@ -4,6 +4,10 @@
 
 ```sh
 ~/onGit/play-scala-sample-apps (master)
+$ which activator
+/c/Software/Typesafe-Activator/typesafe-activator-1.3.10/bin/activator
+
+~/onGit/play-scala-sample-apps (master)
 $ activator new ToDoList just-play-scala
 
 Fetching the latest list of templates...
