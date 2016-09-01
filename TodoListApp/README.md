@@ -229,3 +229,42 @@ version := "1.0-SNAPSHOT"
 
 lazy val root = project.in(file(".")).enablePlugins(PlayScala)
 ```
+
+### Running the default project
+
+```sh
+:~/onBB/Play-Scala-Sample-Apps/TodoListApp$ activator run
+[info] Loading project definition from /home/droid/onBB/Play-Scala-Sample-Apps/TodoListApp/project
+[info] Updating {file:/home/droid/onBB/Play-Scala-Sample-Apps/TodoListApp/project/}todolistapp-build...
+[info] Resolving org.fusesource.jansi#jansi;1.4 ...
+[info] Done updating.
+[info] Set current project to TodoListApp (in build file:/home/droid/onBB/Play-Scala-Sample-Apps/TodoListApp/)
+[info] Updating {file:/home/droid/onBB/Play-Scala-Sample-Apps/TodoListApp/}root...
+[info] Resolving org.fusesource.jansi#jansi;1.4 ...
+[info] Done updating.
+
+--- (Running the application from SBT, auto-reloading is enabled) ---
+
+[info] play - Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+(Server started, use Ctrl+D to stop and go back to the console...)
+
+```
+
+**Making a request from the browser**
+
+Requesting the following URL in the browser "http://localhost:9000/" displays the following in the console
+
+```sh
+(Server started, use Ctrl+D to stop and go back to the console...)
+
+[info] Compiling 4 Scala sources and 1 Java source to /home/droid/onBB/Play-Scala-Sample-Apps/TodoListApp/target/scala-2.10/classes...
+[warn] Error reading API from class file : java.lang.UnsupportedClassVersionError: controllers/routes$javascript : Unsupported major.minor version 52.0
+[warn] Error reading API from class file : java.lang.UnsupportedClassVersionError: controllers/routes : Unsupported major.minor version 52.0
+[warn] Error reading API from class file : java.lang.UnsupportedClassVersionError: controllers/routes$ref : Unsupported major.minor version 52.0
+[info] play - Application started (Dev)
+```
+
+and displays the following in the browser
+
+
