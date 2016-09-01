@@ -267,4 +267,4 @@ Requesting the following URL in the browser "http://localhost:9000/" displays th
 
 and displays the following in the browser
 
-
+![](_misc/Output%20in%20browser.png)
