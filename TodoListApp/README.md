@@ -90,3 +90,7 @@ To run the Activator UI for "TodoListApp" from the command line, "cd TodoListApp
 /home/droid/onBB/Play-Scala-Sample-Apps/TodoListApp/activator ui
 
 ```
+
+### Project structure and content
+
+![](_misc/Project%20Structure.png)
