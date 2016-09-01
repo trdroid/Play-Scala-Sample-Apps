@@ -222,6 +222,12 @@ addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.3.4")
 
 *TodoListApp/build.sbt*
 
+"build.sbt" is the build definition file, which is essentially a list of key-value pairs. The symbol ":=" is the assignment operator. The default build file includes the following keys
+
+* name
+* version
+* root
+
 ```sbt
 name := """TodoListApp"""
 
@@ -229,6 +235,35 @@ version := "1.0-SNAPSHOT"
 
 lazy val root = project.in(file(".")).enablePlugins(PlayScala)
 ```
+
+### Understanding content
+
+**Build files**
+
+To indicate SBT that the project is a Play application and that it "recognizes" the project as a Play application, it has to be provided with the Play settings. This is done by enabling the *PlayScala* plugin from where the Play settings are imported.
+
+*TodoListApp/build.sbt*
+
+```sbt
+name := """TodoListApp"""
+
+version := "1.0-SNAPSHOT"
+
+lazy val root = project.in(file(".")).enablePlugins(PlayScala)   <-----------
+```
+
+SBT allows build definitions to be extended using plugins. To allow SBT to download the plugins required for Play applications, add the following content to 
+
+*TodoListApp/project/plugins.sbt*
+
+```properties
+resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
+
+addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.3.4")      <--------------
+```
+
+The *resolver* has to be modified if the plugin is not hosted on Maven or Typesafe repositories.
+
 
 ### Running the default project
 
@@ -268,3 +303,13 @@ Requesting the following URL in the browser "http://localhost:9000/" displays th
 and displays the following in the browser
 
 ![](_misc/Output%20in%20browser.png)
+
+
+### Generated files 
+
+
+
+### sbt build file alternative
+
+An alternative to using an *.sbt* build file is to provide the build configuration settings in Scala code i.e. in a *.scala* build file.
+
