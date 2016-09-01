@@ -94,3 +94,138 @@ To run the Activator UI for "TodoListApp" from the command line, "cd TodoListApp
 ### Project structure and content
 
 ![](_misc/Project%20Structure.png)
+
+*TodoListApp/app/controllers/Application.scala*
+
+```scala
+package controllers
+
+import play.api.mvc._
+
+object Application extends Controller {
+
+  def index = Action {
+    Ok(views.html.main())
+  }
+
+}
+```
+
+*TodoListApp/app/views/main.scala.html*
+
+```scala
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Just Play Scala</title>
+    </head>
+    <body>
+        <h1>Just Play Scala</h1>
+    </body>
+</html>
+```
+
+*TodoListApp/conf/application.conf*
+
+```conf
+# This is the main configuration file for the application.
+# ~~~~~
+
+# Secret key
+# ~~~~~
+# The secret key is used to secure cryptographics functions.
+# If you deploy your application to several instances be sure to use the same key!
+application.secret="kY9oA[`V9q1]5467cTQao4EHb@xFHZA5^b:at[;:nLEvdWYpBnchCneh>P?u0Wp_"
+
+# The application languages
+# ~~~~~
+# application.langs="en"
+
+# Global object class
+# ~~~~~
+# Define the Global object class for this application.
+# Default to Global in the root package.
+# application.global=Global
+
+# Router
+# ~~~~~
+# Define the Router object to use for this application.
+# This router will be looked up first when the application is starting up,
+# so make sure this is the entry point.
+# Furthermore, it's assumed your route file is named properly.
+# So for an application router like `my.application.Router`,
+# you may need to define a router file `conf/my.application.routes`.
+# Default to Routes in the root package (and conf/routes)
+# application.router=my.application.Routes
+
+# Database configuration
+# ~~~~~
+# You can declare as many datasources as you want.
+# By convention, the default datasource is named `default`
+#
+# db.default.driver=org.h2.Driver
+# db.default.url="jdbc:h2:mem:play"
+# db.default.user=sa
+# db.default.password=""
+
+# Evolutions
+# ~~~~~
+# You can disable evolutions if needed
+# evolutionplugin=disabled
+
+# Logger
+# ~~~~~
+# You can also configure logback (http://logback.qos.ch/),
+# by providing an application-logger.xml file in the conf directory.
+
+# Root logger:
+logger.root=ERROR
+
+# Logger used by the framework:
+logger.play=INFO
+
+# Logger provided to your application:
+logger.application=DEBUG
+```
+
+*TodoListApp/conf/routes*
+
+```conf
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file)
+```
+
+*TodoListApp/project/build.properties*
+
+```properties
+#Activator-generated Properties
+#Thu Sep 01 10:56:48 EDT 2016
+template.uuid=71358ad9-fc02-4dfa-aa4a-1ae1964e5181
+sbt.version=0.13.5
+```
+
+*TodoListApp/project/plugins.sbt*
+
+```properties
+resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
+
+addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.3.4")
+```
+
+*TodoListApp/build.sbt*
+
+```sbt
+name := """TodoListApp"""
+
+version := "1.0-SNAPSHOT"
+
+lazy val root = project.in(file(".")).enablePlugins(PlayScala)
+```
