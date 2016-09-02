@@ -136,6 +136,10 @@ The generated view file is a *Twirl* template, which facilitates the views to be
 </html>
 ```
 
+**Configuration file**
+
+Application level configuration properties are set in the following file.
+
 *TodoListApp/conf/application.conf*
 
 ```conf
@@ -199,6 +203,10 @@ logger.play=INFO
 logger.application=DEBUG
 ```
 
+**Routes file**
+
+All requests that the application supports should be defined in the following file. 
+
 *TodoListApp/conf/routes*
 
 ```conf
@@ -212,6 +220,16 @@ GET     /                           controllers.Application.index
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file)
 ```
+
+It can be noticed that each route definition has the following parts
+
+* Request method (GET, PUT, POST, DELETE)
+* Path to which to respond to
+* Method that should be invoked to return a response
+
+The first entry from the above file could be interpreted as follows:
+
+A GET request to the path "/" would invoke the method "controllers.Application.index" and responds to the request with the return value of the method.
 
 **Build files**
 
