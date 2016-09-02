@@ -227,9 +227,15 @@ It can be noticed that each route definition has the following parts
 * Path to which to respond to
 * Method that should be invoked to return a response
 
-The first entry from the above file could be interpreted as follows:
+The first entry from the above file could be interpreted as:
 
 A GET request to the path "/" would invoke the method "controllers.Application.index" and responds to the request with the return value of the method.
+
+The second entry from the above file could be interpreted as:
+
+A GET request to a the path "/assets/*file" would be served from the "public" folder.
+
+The *public* directory is where Play-independent resources like JavaScript, CSS, images etc. are hosted
 
 **Build files**
 
